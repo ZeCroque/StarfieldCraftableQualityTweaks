@@ -199,9 +199,16 @@ begin
     node := Add(container, 'Required Perk', false);
     SetElementEditValues(node, 'Perk', perk);
     SetElementEditValues(node, 'Rank', '4');
-    node := Add(container, 'Required Perk', false);
-    SetElementEditValues(node, 'Perk', specialPerk);
-    SetElementEditValues(node, 'Rank', '3');
+    if (pos('_04', elementName) > 0) then begin
+      node := Add(container, 'Required Perk', false);
+      SetElementEditValues(node, 'Perk', specialPerk);
+      SetElementEditValues(node, 'Rank', '3');
+    end
+    else begin
+      node := Add(container, 'Required Perk', false);
+      SetElementEditValues(node, 'Perk', specialPerk);
+      SetElementEditValues(node, 'Rank', '4');
+    end
   end
     SetElementEditValues(ElementBySignature(ElementByIndex(ElementbyName(e, 'Conditions'), 0), 'CTDA'), 'Research Project', research);
 end;
